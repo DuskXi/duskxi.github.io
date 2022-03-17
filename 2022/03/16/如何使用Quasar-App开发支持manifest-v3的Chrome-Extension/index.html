@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/image/blog-icon.png">
+  <link rel="icon" href="/image/blog-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Dusk">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="原因对于现在而言，发布Chrome Extension 到 Chrome Web Store 已经被谷歌强制使用manifest v3了 而Quasar框架最近才刚刚在 Quasar CLI APP Vite中支持manifest v3，所以这个教程有短暂的存在的必要 为什么要用Quasar开发Browser Extension主要原因，是因为当你想要在Chrome Extension中使用Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用Quasar App开发支持manifest v3的Chrome Extension">
+<meta property="og:url" content="https://duskxi.github.io/2022/03/16/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Quasar-App%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81manifest-v3%E7%9A%84Chrome-Extension/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="原因对于现在而言，发布Chrome Extension 到 Chrome Web Store 已经被谷歌强制使用manifest v3了 而Quasar框架最近才刚刚在 Quasar CLI APP Vite中支持manifest v3，所以这个教程有短暂的存在的必要 为什么要用Quasar开发Browser Extension主要原因，是因为当你想要在Chrome Extension中使用Vue">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://duskxi.github.io/image/covers/87610574_p0.jpg">
+<meta property="article:published_time" content="2022-03-16T17:13:23.000Z">
+<meta property="article:modified_time" content="2022-03-16T20:46:14.759Z">
+<meta property="article:author" content="Dusk">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://duskxi.github.io/image/covers/87610574_p0.jpg">
+  
+  
+  <title>如何使用Quasar App开发支持manifest v3的Chrome Extension - Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"duskxi.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":307352484,"gtag":"G-RGJRSC4CZW","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"sFXJYYnhr39Icc5BLmzWzQ9c-MdYXbMMI","app_key":"UiuqYO9NACnxd4M8vI8Vsolb","server_url":null,"path":"window.location.pathname","ignore_local":true}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 75vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/image/background/95960772_p0.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.55)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="如何使用Quasar App开发支持manifest v3的Chrome Extension">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-16 17:13" pubdate>
+        2022年3月16日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">如何使用Quasar App开发支持manifest v3的Chrome Extension</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月16日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>对于现在而言，发布Chrome Extension 到 Chrome Web Store 已经被谷歌强制使用manifest v3了</p>
+<p>而Quasar框架最近才刚刚在 Quasar CLI APP Vite中支持manifest v3，所以这个教程有短暂的存在的必要</p>
+<h2 id="为什么要用Quasar开发Browser-Extension"><a href="#为什么要用Quasar开发Browser-Extension" class="headerlink" title="为什么要用Quasar开发Browser Extension"></a>为什么要用Quasar开发Browser Extension</h2><p>主要原因，是因为当你想要在Chrome Extension中使用Vue3的时候会有一堆关于内联JS执行的破事等着你</p>
+<p>所以让Quasar一次性解决这些该死的破事</p>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ol>
+<li>需要安装npm和yarn</li>
+</ol>
+<h3 id="对于未安装Quasar-CLI的"><a href="#对于未安装Quasar-CLI的" class="headerlink" title="对于未安装Quasar CLI的"></a>对于未安装Quasar CLI的</h3><hr>
+<p>首先安装cli</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">yarn global add @quasar/cli<br><span class="hljs-comment"># 或者</span><br>npm i -g @quasar/cli<br></code></pre></td></tr></table></figure>
+
+<h2 id="从零开始创建Quasar-App的Chrome-Extension"><a href="#从零开始创建Quasar-App的Chrome-Extension" class="headerlink" title="从零开始创建Quasar App的Chrome Extension"></a>从零开始创建Quasar App的Chrome Extension</h2><h3 id="创建Quasar项目"><a href="#创建Quasar项目" class="headerlink" title="创建Quasar项目"></a>创建Quasar项目</h3><p>先在命令行中cd到你想存放项目的父目录，然后执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn create quasar<br><span class="hljs-comment"># 或者</span><br>npm init quasar<br></code></pre></td></tr></table></figure>
+
+<h3 id="接下来进行对项目的配置"><a href="#接下来进行对项目的配置" class="headerlink" title="接下来进行对项目的配置"></a>接下来进行对项目的配置</h3><hr>
+<p>命令行会出现如下选项, 按键盘上下键选择选项</p>
+<p>选择第一个回车确认</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">? What would you like to <span class="hljs-keyword">build</span>? » - <span class="hljs-keyword">Use</span> arrow-<span class="hljs-keyword">keys</span>. <span class="hljs-keyword">Return</span> <span class="hljs-keyword">to</span> submit.<br>&gt;   App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span><span class="hljs-string">&#x27;s go! - spa/pwa/ssr/bex/electron/capacitor/cordova</span><br><span class="hljs-string">    AppExtension (AE) for Quasar CLI</span><br><span class="hljs-string">    Quasar UI kit</span><br></code></pre></td></tr></table></figure>
+
+<p>然后输入你的项目名</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">√ What would you like <span class="hljs-keyword">to</span> build<span class="hljs-operator">?</span> » App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span>&#x27;s go<span class="hljs-operator">!</span><br><span class="hljs-operator">?</span> Project folder<span class="hljs-operator">:</span> » &#123;项目名&#125;<br></code></pre></td></tr></table></figure>
+
+<p>选择第一个选项并回车</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vbnet">√ What would you <span class="hljs-built_in">like</span> <span class="hljs-keyword">to</span> build? » App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span><span class="hljs-comment">&#x27;s go!</span><br>√ Project folder: ... myproject<br>? Pick Quasar version: » - Use arrow-keys. <span class="hljs-keyword">Return</span> <span class="hljs-keyword">to</span> submit.<br>&gt;   Quasar v2 (Vue <span class="hljs-number">3</span> | latest <span class="hljs-built_in">and</span> greatest) - recommended<br>    Quasar v1 (Vue <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+
+<p>选择JS或者TS，取决于你决定怎么开发</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vbnet">√ What would you <span class="hljs-built_in">like</span> <span class="hljs-keyword">to</span> build? » App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span><span class="hljs-comment">&#x27;s go!</span><br>√ Project folder: ... myproject<br>√ Pick Quasar version: » Quasar v2 (Vue <span class="hljs-number">3</span> | latest <span class="hljs-built_in">and</span> greatest)<br>? Pick script type: » - Use arrow-keys. <span class="hljs-keyword">Return</span> <span class="hljs-keyword">to</span> submit.<br>&gt;   Javascript<br>    Typescript<br></code></pre></td></tr></table></figure>
+
+<p>这里就是<em><strong>关键点</strong></em></p>
+<p>选择第二行<code>Quasar App CLI with Vite (BETA stage)</code></p>
+<p>因为只有这个APP模式才能选择<code>manifest v3</code></p>
+<p>所以选自第二行并回车</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata">√ What would you like to build? » <span class="hljs-keyword">App</span> with Quasar <span class="hljs-keyword">CLI</span>, let&#x27;s go!<br>√ Project folder: ... myproject<br>√ Pick Quasar <span class="hljs-keyword">version</span>: » Quasar v2 (Vue 3 | latest and greatest)<br>√ Pick script <span class="hljs-keyword">type</span>: » Javascript<br>? Pick Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> variant: » - <span class="hljs-keyword">Use</span> arrow-keys. <span class="hljs-keyword">Return</span> to submit.<br>&gt;   Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Webpack (stable)<br>    Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Vite (BETA stage)<br></code></pre></td></tr></table></figure>
+
+<p>包名</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata">√ What would you like to build? » <span class="hljs-keyword">App</span> with Quasar <span class="hljs-keyword">CLI</span>, let&#x27;s go!<br>√ Project folder: ... myproject<br>√ Pick Quasar <span class="hljs-keyword">version</span>: » Quasar v2 (Vue 3 | latest and greatest)<br>√ Pick script <span class="hljs-keyword">type</span>: » Javascript<br>√ Pick Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> variant: » Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Vite (BETA stage)<br>? Package name: » myproject<br></code></pre></td></tr></table></figure>
+
+<p>略过产品名<code>Project product name</code>，描述<code>Project description</code>，和作者<code>Author</code>….</p>
+<p>选择CSS preprocessor，取决于实际情况</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stata">√ What would you like to build? » <span class="hljs-keyword">App</span> with Quasar <span class="hljs-keyword">CLI</span>, let&#x27;s go!<br>√ Project folder: ... myproject<br>√ Pick Quasar <span class="hljs-keyword">version</span>: » Quasar v2 (Vue 3 | latest and greatest)<br>√ Pick script <span class="hljs-keyword">type</span>: » Javascript<br>√ Pick Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> variant: » Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Vite (BETA stage)<br>√ Package name: ... myproject<br>...<br>? Pick your CSS preprocessor: » - <span class="hljs-keyword">Use</span> arrow-keys. <span class="hljs-keyword">Return</span> to submit.<br>&gt;   Sass with SCSS <span class="hljs-keyword">syntax</span><br>    Sass with indented <span class="hljs-keyword">syntax</span><br>    None (the others will still be available)<br></code></pre></td></tr></table></figure>
+
+<p>这里我会选择Vuex，毕竟ESLint破事太多(看个人意愿)</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">√ Pick your CSS preprocessor</span><span class="hljs-punctuation">:</span> <span class="hljs-string">» Sass with SCSS syntax</span><br><span class="hljs-attribute">? Check the features needed for your project</span><span class="hljs-punctuation">:</span> <span class="hljs-string">»</span><br><span class="hljs-attribute">Instructions</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">↑/↓</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Highlight option</span><br>    <span class="hljs-attribute">←/→/[space]</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Toggle selection</span><br>    <span class="hljs-attribute">a</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Toggle all</span><br>    <span class="hljs-attribute">enter/return</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Complete answer</span><br>(*)   ESLint - recommended<br>( )   State Management (Pinia)<br>( )   State Management (Vuex) [DEPRECATED by Vue Team]<br>( )   Axios<br>( )   Vue-i18n<br></code></pre></td></tr></table></figure>
+
+<p>略过<code>preset</code></p>
+<p>最好使用yarn</p>
+<figure class="highlight plaintext"><figcaption><span>Install project dependencies? (recommended) » - Use arrow-keys. Return to submit.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ?">&gt;   Yes, use yarn<br>    No, I will handle that myself<br></code></pre></td></tr></table></figure>
+
+<p>等待执行完毕</p>
+<h3 id="设置Bex模式"><a href="#设置Bex模式" class="headerlink" title="设置Bex模式"></a>设置Bex模式</h3><hr>
+<p>首先需要cd到项目目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> &#123;填写的Project folder的值&#125;<br></code></pre></td></tr></table></figure>
+
+<p>执行命令<code>quasar mode add bex</code></p>
+<p>在这里选择<code>Manifest v3</code>并回车</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">? What <span class="hljs-keyword">version</span> <span class="hljs-keyword">of</span> manifest would you <span class="hljs-keyword">like</span>? (Use arrow keys)<br>&gt; Manifest v2 (works <span class="hljs-keyword">with</span> <span class="hljs-keyword">both</span> Chrome <span class="hljs-keyword">and</span> FF)<br>  Manifest v3 (works <span class="hljs-keyword">with</span> Chrome <span class="hljs-keyword">only</span> currently)<br></code></pre></td></tr></table></figure>
+
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>然后就可以安安心心开发Manifest v3的Chrome插件了</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/16/ArkRecord/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ArkRecord</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/16/first/">
+                        <span class="hidden-mobile">一</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    <!-- Google Analytics -->
+    <script defer>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+      ga.l = +new Date;
+      ga('create', '307352484', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  
+    <!-- Google gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGJRSC4CZW"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RGJRSC4CZW');
+    </script>
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

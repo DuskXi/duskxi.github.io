@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>ArkX</title>
+    <link href="/2022/03/16/ArkX/"/>
+    <url>/2022/03/16/ArkX/</url>
+    
+    <content type="html"><![CDATA[<h1 id="ArkX-明日方舟自动化助手"><a href="#ArkX-明日方舟自动化助手" class="headerlink" title="ArkX 明日方舟自动化助手"></a>ArkX 明日方舟自动化助手</h1><p>基于 TensorFlow 与 Scrcpy 的开源自动化明日方舟清理智工具</p><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/DuskXi/ArkX">Github</a></p><h2 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h2><p><a href="https://www.bilibili.com/video/BV1wb4y147vD">bilibili</a></p><h2 id="项目功能"><a href="#项目功能" class="headerlink" title="项目功能"></a>项目功能</h2><h3 id="已经实现的功能-核心功能"><a href="#已经实现的功能-核心功能" class="headerlink" title="已经实现的功能(核心功能)"></a>已经实现的功能(核心功能)</h3><ol><li><ul><li><input checked="" disabled="" type="checkbox"> 对游戏界面进行判断(实验结论为使用自定义网络的Tensorflow的图像分类模型)</li></ul></li><li><ul><li><input checked="" disabled="" type="checkbox"> 从图像中获取各类按钮的坐标(实验结论为使用基于Tensorflow的ObjectDetectionAPI库)</li></ul></li><li><ul><li><input checked="" disabled="" type="checkbox"> 识别文字(实验结论为使用同样基于Tensorflow的PaddleOCR)</li></ul></li><li><ul><li><input checked="" disabled="" type="checkbox"> 利用adb获取串流(经过实验后结论为使用 scrcpy)</li></ul></li><li><ul><li><input checked="" disabled="" type="checkbox"> 利用adb实现点击(也使用scrcpy)</li></ul></li><li><ul><li><input checked="" disabled="" type="checkbox"> 用于清理智的操作逻辑程序</li></ul></li></ol><hr><h3 id="其他重要功能"><a href="#其他重要功能" class="headerlink" title="其他重要功能"></a>其他重要功能</h3><ul><li><input checked="" disabled="" type="checkbox"> 自动添加理智</li><li><input checked="" disabled="" type="checkbox"> 判断是否使用源石添加理智</li><li><input checked="" disabled="" type="checkbox"> 读取进度</li><li><input checked="" disabled="" type="checkbox"> 反馈模型检测精准度</li><li><input disabled="" type="checkbox"> 降低CPU使用率</li><li><input checked="" disabled="" type="checkbox"> 支持GPU</li><li><input checked="" disabled="" type="checkbox"> 设置GPU显存限制</li><li><input checked="" disabled="" type="checkbox"> GPU动态显存</li><li><input checked="" disabled="" type="checkbox"> 多设备选择</li></ul><hr><h3 id="已实现"><a href="#已实现" class="headerlink" title="已实现"></a>已实现</h3><ul><li><input checked="" disabled="" type="checkbox"> 提供adb设备操作界面</li><li><input checked="" disabled="" type="checkbox"> 显示系统信息(主要为GPU设备)</li><li><input checked="" disabled="" type="checkbox"> 提供网络设备的连接功能</li></ul><h3 id="待实现"><a href="#待实现" class="headerlink" title="待实现"></a>待实现</h3><ul><li><input disabled="" type="checkbox"> 基于ffmpeg-python 对 H264解码进行GPU加速支持(cuvid,cuda,h264_amf,vaapi), 移除PyAV库</li></ul><hr><h3 id="大饼"><a href="#大饼" class="headerlink" title="大饼"></a>大饼</h3><ul><li><input disabled="" type="checkbox"> 实现基建自动换班</li><li><input disabled="" type="checkbox"> 实现指定不同关卡</li></ul><h2 id="项目开发日志"><a href="#项目开发日志" class="headerlink" title="项目开发日志"></a>项目开发日志</h2><h3 id="2020-02-12"><a href="#2020-02-12" class="headerlink" title="2020.02.12"></a>2020.02.12</h3><p>完成了第一个大版本的开发</p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>开源项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>介绍</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>ArkRecord</title>
+    <link href="/2022/03/16/ArkRecord/"/>
+    <url>/2022/03/16/ArkRecord/</url>
+    
+    <content type="html"><![CDATA[<h1 id="这是我写的一个Chrome浏览器的插件"><a href="#这是我写的一个Chrome浏览器的插件" class="headerlink" title="这是我写的一个Chrome浏览器的插件"></a>这是我写的一个Chrome浏览器的插件</h1><h3 id="用于记录明日方舟的抽卡记录，并且展示统计数据，支持导出导入-暂时只支持json数据"><a href="#用于记录明日方舟的抽卡记录，并且展示统计数据，支持导出导入-暂时只支持json数据" class="headerlink" title="用于记录明日方舟的抽卡记录，并且展示统计数据，支持导出导入(暂时只支持json数据)"></a>用于记录明日方舟的抽卡记录，并且展示统计数据，支持导出导入(暂时只支持json数据)</h3><hr><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/DuskXi/ArkRecord">GitHub repository</a></p><h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a><strong>方法一</strong></h3><h4 id="Chrome-Store安装"><a href="#Chrome-Store安装" class="headerlink" title="Chrome Store安装"></a>Chrome Store安装</h4><div class="note note-primary">            <p><del>还在等Google的审核</del></p><p><del>后续补齐</del></p>          </div><p>Google 那边已经过审了</p><p>在Chrome Web Store中搜索 <code>ArkRecord</code> 即可安装</p><p>或者直接点击 <a href="https://chrome.google.com/webstore/detail/arkrecord/mphjjhidfbbnjjnmpffepbfllgocggpl">https://chrome.google.com/webstore/detail/arkrecord/mphjjhidfbbnjjnmpffepbfllgocggpl</a> 安装</p><p>然后跳到<a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></p><p><img src="/image/post/ArkRecord/Store.png" alt="预览"></p><hr><h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a><strong>方法二</strong></h3><h4 id="下载release版本"><a href="#下载release版本" class="headerlink" title="下载release版本"></a>下载release版本</h4><ol><li><p>前往 <a href="https://github.com/DuskXi/ArkRecord/releases/latest">Release Page</a> 下载<code>Packaged.arkrecord.zip</code></p></li><li><p>将<code>Packaged.arkrecord.zip</code>解压到一个你认为合适的地方</p></li><li><p>接下来打开Chrome浏览器，在地址栏中输入<code>chrome://extensions</code>并回车</p></li><li><p>把右上角的 <code>开发者模式</code> 打开</p></li><li><p>再点击左上角的 <code>加载已解压的扩展程序</code>, 选择 <code>Packaged.arkrecord.zip</code> 解压后所在的目录</p></li></ol><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol><li><p>⚠️⚠️⚠️(重点) 使用插件之前，先要确保你登录了明日方舟的官网 <a href="https://ak.hypergryph.com/">https://ak.hypergryph.com/</a> ,因为插件是基于方舟官网的cookie进行记录的</p></li><li><p>前往右上角的插件图标 <img src="/image/post/ArkRecord/logo.png"> 找到 <code>ArkRecord</code> 的图标 <img src="/image/post/ArkRecord/arkrecord.png"></p></li><li><p>然后可以自行选择是否固定(点击右侧的图钉图标可以固定住插件)</p></li><li><p>点击图标即可打开插件的缩略信息页面, 如果想要看详细数据, 或者进行数据导入导出, 只需要点击 <code>查看详细数据</code> 按钮</p></li></ol><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><hr><p><img src="/image/post/ArkRecord/shown1.png" alt="Popup页面"></p><p><img src="/image/post/ArkRecord/shown2.png" alt="主界面"></p><p><img src="/image/post/ArkRecord/shown3.png" alt="概览统计"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>开源项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>介绍</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何使用Quasar App开发支持manifest v3的Chrome Extension</title>
+    <link href="/2022/03/16/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Quasar-App%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81manifest-v3%E7%9A%84Chrome-Extension/"/>
+    <url>/2022/03/16/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Quasar-App%E5%BC%80%E5%8F%91%E6%94%AF%E6%8C%81manifest-v3%E7%9A%84Chrome-Extension/</url>
+    
+    <content type="html"><![CDATA[<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>对于现在而言，发布Chrome Extension 到 Chrome Web Store 已经被谷歌强制使用manifest v3了</p><p>而Quasar框架最近才刚刚在 Quasar CLI APP Vite中支持manifest v3，所以这个教程有短暂的存在的必要</p><h2 id="为什么要用Quasar开发Browser-Extension"><a href="#为什么要用Quasar开发Browser-Extension" class="headerlink" title="为什么要用Quasar开发Browser Extension"></a>为什么要用Quasar开发Browser Extension</h2><p>主要原因，是因为当你想要在Chrome Extension中使用Vue3的时候会有一堆关于内联JS执行的破事等着你</p><p>所以让Quasar一次性解决这些该死的破事</p><h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><ol><li>需要安装npm和yarn</li></ol><h3 id="对于未安装Quasar-CLI的"><a href="#对于未安装Quasar-CLI的" class="headerlink" title="对于未安装Quasar CLI的"></a>对于未安装Quasar CLI的</h3><hr><p>首先安装cli</p><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">yarn global add @quasar/cli<br><span class="hljs-comment"># 或者</span><br>npm i -g @quasar/cli<br></code></pre></td></tr></table></figure><h2 id="从零开始创建Quasar-App的Chrome-Extension"><a href="#从零开始创建Quasar-App的Chrome-Extension" class="headerlink" title="从零开始创建Quasar App的Chrome Extension"></a>从零开始创建Quasar App的Chrome Extension</h2><h3 id="创建Quasar项目"><a href="#创建Quasar项目" class="headerlink" title="创建Quasar项目"></a>创建Quasar项目</h3><p>先在命令行中cd到你想存放项目的父目录，然后执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn create quasar<br><span class="hljs-comment"># 或者</span><br>npm init quasar<br></code></pre></td></tr></table></figure><h3 id="接下来进行对项目的配置"><a href="#接下来进行对项目的配置" class="headerlink" title="接下来进行对项目的配置"></a>接下来进行对项目的配置</h3><hr><p>命令行会出现如下选项, 按键盘上下键选择选项</p><p>选择第一个回车确认</p><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs n1ql">? What would you like to <span class="hljs-keyword">build</span>? » - <span class="hljs-keyword">Use</span> arrow-<span class="hljs-keyword">keys</span>. <span class="hljs-keyword">Return</span> <span class="hljs-keyword">to</span> submit.<br>&gt;   App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span><span class="hljs-string">&#x27;s go! - spa/pwa/ssr/bex/electron/capacitor/cordova</span><br><span class="hljs-string">    AppExtension (AE) for Quasar CLI</span><br><span class="hljs-string">    Quasar UI kit</span><br></code></pre></td></tr></table></figure><p>然后输入你的项目名</p><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">√ What would you like <span class="hljs-keyword">to</span> build<span class="hljs-operator">?</span> » App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span>&#x27;s go<span class="hljs-operator">!</span><br><span class="hljs-operator">?</span> Project folder<span class="hljs-operator">:</span> » &#123;项目名&#125;<br></code></pre></td></tr></table></figure><p>选择第一个选项并回车</p><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vbnet">√ What would you <span class="hljs-built_in">like</span> <span class="hljs-keyword">to</span> build? » App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span><span class="hljs-comment">&#x27;s go!</span><br>√ Project folder: ... myproject<br>? Pick Quasar version: » - Use arrow-keys. <span class="hljs-keyword">Return</span> <span class="hljs-keyword">to</span> submit.<br>&gt;   Quasar v2 (Vue <span class="hljs-number">3</span> | latest <span class="hljs-built_in">and</span> greatest) - recommended<br>    Quasar v1 (Vue <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure><p>选择JS或者TS，取决于你决定怎么开发</p><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vbnet">√ What would you <span class="hljs-built_in">like</span> <span class="hljs-keyword">to</span> build? » App <span class="hljs-keyword">with</span> Quasar CLI, <span class="hljs-keyword">let</span><span class="hljs-comment">&#x27;s go!</span><br>√ Project folder: ... myproject<br>√ Pick Quasar version: » Quasar v2 (Vue <span class="hljs-number">3</span> | latest <span class="hljs-built_in">and</span> greatest)<br>? Pick script type: » - Use arrow-keys. <span class="hljs-keyword">Return</span> <span class="hljs-keyword">to</span> submit.<br>&gt;   Javascript<br>    Typescript<br></code></pre></td></tr></table></figure><p>这里就是<em><strong>关键点</strong></em></p><p>选择第二行<code>Quasar App CLI with Vite (BETA stage)</code></p><p>因为只有这个APP模式才能选择<code>manifest v3</code></p><p>所以选自第二行并回车</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata">√ What would you like to build? » <span class="hljs-keyword">App</span> with Quasar <span class="hljs-keyword">CLI</span>, let&#x27;s go!<br>√ Project folder: ... myproject<br>√ Pick Quasar <span class="hljs-keyword">version</span>: » Quasar v2 (Vue 3 | latest and greatest)<br>√ Pick script <span class="hljs-keyword">type</span>: » Javascript<br>? Pick Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> variant: » - <span class="hljs-keyword">Use</span> arrow-keys. <span class="hljs-keyword">Return</span> to submit.<br>&gt;   Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Webpack (stable)<br>    Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Vite (BETA stage)<br></code></pre></td></tr></table></figure><p>包名</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata">√ What would you like to build? » <span class="hljs-keyword">App</span> with Quasar <span class="hljs-keyword">CLI</span>, let&#x27;s go!<br>√ Project folder: ... myproject<br>√ Pick Quasar <span class="hljs-keyword">version</span>: » Quasar v2 (Vue 3 | latest and greatest)<br>√ Pick script <span class="hljs-keyword">type</span>: » Javascript<br>√ Pick Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> variant: » Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Vite (BETA stage)<br>? Package name: » myproject<br></code></pre></td></tr></table></figure><p>略过产品名<code>Project product name</code>，描述<code>Project description</code>，和作者<code>Author</code>….</p><p>选择CSS preprocessor，取决于实际情况</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stata">√ What would you like to build? » <span class="hljs-keyword">App</span> with Quasar <span class="hljs-keyword">CLI</span>, let&#x27;s go!<br>√ Project folder: ... myproject<br>√ Pick Quasar <span class="hljs-keyword">version</span>: » Quasar v2 (Vue 3 | latest and greatest)<br>√ Pick script <span class="hljs-keyword">type</span>: » Javascript<br>√ Pick Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> variant: » Quasar <span class="hljs-keyword">App</span> <span class="hljs-keyword">CLI</span> with Vite (BETA stage)<br>√ Package name: ... myproject<br>...<br>? Pick your CSS preprocessor: » - <span class="hljs-keyword">Use</span> arrow-keys. <span class="hljs-keyword">Return</span> to submit.<br>&gt;   Sass with SCSS <span class="hljs-keyword">syntax</span><br>    Sass with indented <span class="hljs-keyword">syntax</span><br>    None (the others will still be available)<br></code></pre></td></tr></table></figure><p>这里我会选择Vuex，毕竟ESLint破事太多(看个人意愿)</p><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-attribute">√ Pick your CSS preprocessor</span><span class="hljs-punctuation">:</span> <span class="hljs-string">» Sass with SCSS syntax</span><br><span class="hljs-attribute">? Check the features needed for your project</span><span class="hljs-punctuation">:</span> <span class="hljs-string">»</span><br><span class="hljs-attribute">Instructions</span><span class="hljs-punctuation">:</span><br>    <span class="hljs-attribute">↑/↓</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Highlight option</span><br>    <span class="hljs-attribute">←/→/[space]</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Toggle selection</span><br>    <span class="hljs-attribute">a</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Toggle all</span><br>    <span class="hljs-attribute">enter/return</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Complete answer</span><br>(*)   ESLint - recommended<br>( )   State Management (Pinia)<br>( )   State Management (Vuex) [DEPRECATED by Vue Team]<br>( )   Axios<br>( )   Vue-i18n<br></code></pre></td></tr></table></figure><p>略过<code>preset</code></p><p>最好使用yarn</p><figure class="highlight plaintext"><figcaption><span>Install project dependencies? (recommended) » - Use arrow-keys. Return to submit.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ?">&gt;   Yes, use yarn<br>    No, I will handle that myself<br></code></pre></td></tr></table></figure><p>等待执行完毕</p><h3 id="设置Bex模式"><a href="#设置Bex模式" class="headerlink" title="设置Bex模式"></a>设置Bex模式</h3><hr><p>首先需要cd到项目目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> &#123;填写的Project folder的值&#125;<br></code></pre></td></tr></table></figure><p>执行命令<code>quasar mode add bex</code></p><p>在这里选择<code>Manifest v3</code>并回车</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">? What <span class="hljs-keyword">version</span> <span class="hljs-keyword">of</span> manifest would you <span class="hljs-keyword">like</span>? (Use arrow keys)<br>&gt; Manifest v2 (works <span class="hljs-keyword">with</span> <span class="hljs-keyword">both</span> Chrome <span class="hljs-keyword">and</span> FF)<br>  Manifest v3 (works <span class="hljs-keyword">with</span> Chrome <span class="hljs-keyword">only</span> currently)<br></code></pre></td></tr></table></figure><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>然后就可以安安心心开发Manifest v3的Chrome插件了</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>教程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一</title>
+    <link href="/2022/03/16/first/"/>
+    <url>/2022/03/16/first/</url>
+    
+    <content type="html"><![CDATA[<h1 id="这篇算是个Init吧"><a href="#这篇算是个Init吧" class="headerlink" title="这篇算是个Init吧"></a>这篇算是个Init吧</h1><h3 id="这个Blog主要还是用于记录各种代码的细节和使用方法，免得自己忘记。毕竟懒得用笔记本"><a href="#这个Blog主要还是用于记录各种代码的细节和使用方法，免得自己忘记。毕竟懒得用笔记本" class="headerlink" title="这个Blog主要还是用于记录各种代码的细节和使用方法，免得自己忘记。毕竟懒得用笔记本"></a>这个Blog主要还是用于记录各种代码的细节和使用方法，免得自己忘记。毕竟懒得用笔记本</h3>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2022/03/16/hello-world/"/>
+    <url>/2022/03/16/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
