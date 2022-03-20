@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://duskxi.github.io/sitemap.xml
-Sitemap: https://duskxi.github.io/sitemap.txt
