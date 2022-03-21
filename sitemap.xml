@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>https://duskxi.github.io/sitemaps.html</loc>
-        
-        <lastmod>2022-03-20</lastmod>
-        
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <url>
         <loc>https://duskxi.github.io/2022/03/16/ArkRecord/</loc>
         
         <lastmod>2022-03-17</lastmod>
